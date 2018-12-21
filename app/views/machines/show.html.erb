@@ -1,1 +1,10 @@
 <h1><%= @machine.location %> Vending Machine</h1>
+
+<% @machine.snacks.each do |snack| %>
+  <div class="snack">
+    <div class="name"><%= snack.name %></div>
+    <div class="price">Price: <%= number_to_currency(snack.price / 100.to_f) %></div>
+  </div>
+<% end %>
+
+<h2> Average Snack Price: <%= number_to_currency(@average_snack_price / 100.to_f) %> </h2>
